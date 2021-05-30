@@ -8,8 +8,8 @@ namespace creational
         static void Main(string[] args)
         {
             CarDealership dealership = new();
-            var car1 = dealership.CustomizeAndCreateCar(CarType.HatchBack, "red");
-            Console.WriteLine(car1);
+            var bedecar = dealership.CustomizeAndCreateCar(CarType.HatchBack, "red");
+            Console.WriteLine(bedecar);
         }
     }
 }

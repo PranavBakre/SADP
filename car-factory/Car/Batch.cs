@@ -1,6 +1,8 @@
 using car_factory.Car.Type;
 using System.Collections.Generic;
 using car_factory.Iterator;
+using System;
+
 namespace car_factory.Car
 {
     class Batch
@@ -8,13 +10,17 @@ namespace car_factory.Car
         public CarType Type { get; init; }
 
         private int _count;
-        public int Count { get => _count; init => _count = value; }
+        public int Count => _count;
+
+        public int Size { get; init; }
+
         private List<ICar> _cars = new List<ICar>();
         public ICollection<ICar> Cars => _cars.AsReadOnly();
-        public void AddCar(ICar car)
+        public void AddCar(CarType type)
         {
-            if (_cars.Count < _count)
+            if (_cars.Count < Size)
             {
+                var car = CarCreator.Create(type);
                 _cars.Add(car);
                 _count = _cars.Count;
             }

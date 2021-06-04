@@ -20,7 +20,7 @@ namespace car_factory.Car
 
         public override string ToString()
         {
-            return $"This is a {Type} of color {Color}";
+            return $"This is a {Type} of color {Color??"Not Set"}";
         }
     }
 }
